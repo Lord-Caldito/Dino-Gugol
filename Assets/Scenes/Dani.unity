@@ -512,6 +512,7 @@ MonoBehaviour:
   botonReiniciar: {fileID: 1689748510}
   textoGameOver: {fileID: 1767415520}
   "cron\xF3metro": 0
+  enemigo1: {fileID: 0}
 --- !u!1 &811667648
 GameObject:
   m_ObjectHideFlags: 0

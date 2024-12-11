@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManagerPersona2 : MonoBehaviour
 {
     [SerializeField] public int puntuacionActual, puntuacionMaxima;
     [SerializeField] public float tiempo;
-    [SerializeField] GameObject jugador, enemigo, botonReiniciar, textoGameOver;
+    [SerializeField] GameObject jugador, enemigo, botonReiniciar, textoGameOver; 
     [SerializeField] bool cronómetro = false;
+    [SerializeField] Enemigo1 enemigo1;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,7 @@ public class GameManagerPersona2 : MonoBehaviour
         botonReiniciar.SetActive(false);
         tiempo = 0f;
         cronómetro = true;
+        enemigo1.IniciarEnemigo();
         
     }
     public void actualizarPuntuacion()
