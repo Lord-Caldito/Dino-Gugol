@@ -30,4 +30,9 @@ public class Enemigo1 : MonoBehaviour
             }
         }
     }
+    public void IniciarEnemigo()
+    {
+        transform.position = posicionInicial;
+        velocidad = 3;
+    }
 }
