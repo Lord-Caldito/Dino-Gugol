@@ -8,6 +8,7 @@ public class personajecontrol : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] float velocidad=5;
     [SerializeField] GameManager gameManager;
+    [SerializeField] bool puedeSaltar, saltoInfinito;
 
     // Start is called before the first frame update
     void Start()
@@ -19,16 +20,17 @@ public class personajecontrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && (puedeSaltar == true || saltoInfinito == true))
         {
             animator.SetBool("saltar", true);
+            puedeSaltar = false;
             rigidbody2d.AddForce(Vector2.up*velocidad);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        animator.SetBool("saltar", false);//Comprovar si esta tocando el suelo para saltar
-
+        animator.SetBool("saltar", false);//Comprobar si esta tocando el suelo para saltar
+        puedeSaltar = true;
         if (collision.transform.tag == "enemigo")
         {
             gameManager.perder();
